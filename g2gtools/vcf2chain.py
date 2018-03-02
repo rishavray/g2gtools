@@ -10,6 +10,7 @@ import multiprocessing
 import os
 import sys
 import time
+import copy
 
 import pysam
 from pysam import TabixFile
@@ -388,16 +389,16 @@ def vcf2chain(input_file, fasta_file, strain, output_file, vcf_keep=False, passe
         g2g_fu.delete_file(left.output_file)
 
     try:
-        all_chrom = [c for c in fasta_file.references]
-        all_chrom_length = [n for n in fasta_file.lengths]
-        all_vcffiles = [input_file] * len(all_chrom)
-        all_sample_index = [sample_index] * len(all_chrom)
-        all_chain_info = [chain_info] * len(all_chrom)
-        all_diploid = [diploid] * len(all_chrom)
-        all_passed = [passed] * len(all_chrom)
-        all_quality = [quality] * len(all_chrom)
-        all_vcf_keep = [vcf_keep] * len(all_chrom)
-        all_vcf_discard_file = [vcf_discard_file] * len(all_chrom)
+        all_chrom = [copy.deepcopy(c) for c in fasta_file.references]
+        all_chrom_length = [copy.deepcopy(n) for n in fasta_file.lengths]
+        all_vcffiles = [copy.deepcopy(input_file) for _ in xrange(0,len(all_chrom))]
+        all_sample_index = [copy.deepcopy(sample_index) for _ in xrange(0,len(all_chrom))]
+        all_chain_info = [copy.deepcopy(chain_info) for _ in xrange(0,len(all_chrom))]
+        all_diploid = [copy.deepcopy(diploid) for _ in xrange(0,len(all_chrom))]
+        all_passed = [copy.deepcopy(passed) for _ in xrange(0,len(all_chrom))]
+        all_quality = [copy.deepcopy(quality) for _ in xrange(0,len(all_chrom))]
+        all_vcf_keep = [copy.deepcopy(vcf_keep) for _ in xrange(0,len(all_chrom))]
+        all_vcf_discard_file = [copy.deepcopy(vcf_discard_file) for _ in xrange(0,len(all_chrom))]
 
         args = zip(all_vcffiles, all_chrom, all_chrom_length, all_sample_index, all_chain_info, all_diploid, all_passed,
                    all_quality, all_vcf_keep, all_vcf_discard_file)
