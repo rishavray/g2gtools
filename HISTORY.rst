@@ -3,6 +3,43 @@
 History
 -------
 
+0.2.5 (06/06/2018)
+~~~~~~~~~~~~~~~~~~
+
+* Fixed error of always generating index file
+
+0.2.4 (06/05/2018)
+~~~~~~~~~~~~~~~~~~
+
+* Automtically generates file index if not found
+
+0.2.3 (06/05/2018)
+~~~~~~~~~~~~~~~~~~
+
+* Fixed end of contig tree mapping
+
+0.2.2 (06/04/2018)
+~~~~~~~~~~~~~~~~~~
+
+* Fixed extract transcripts
+
+0.2.1 (05/30/2018)
+~~~~~~~~~~~~~~~~~~
+
+* Hotfix to solve gtf parsing problem in python 3
+
+0.2.0 (05/09/2018)
+~~~~~~~~~~~~~~~~~~
+
+* Support for diploid VCF
+* Reimplemented to support G2G VCI (Variant Call Information)
+* Support python3
+
+0.1.31 (02/17/2017)
+~~~~~~~~~~~~~~~~~~~
+
+* Final release for custom haploid reconstruction
+
 0.1.29 (05/17/2016)
 ~~~~~~~~~~~~~~~~~~~
 
